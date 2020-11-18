@@ -127,20 +127,10 @@ def decode(text):
 		if text == temp_text:
 			isNotIdentical = False
 
-	voice = 'en-US_AllisonV3Voice' # Specific TTS voice
+        print(text, '\n')
 
-	url = "https://text-to-speech-demo.ng.bluemix.net/api/v3/synthesize?text=" +\
-			urllib.parse.quote(text) +\
-			"&voice=" + voice + "&ssmlLabel=SSML&download=true&accept=audio%2Fmp3"
+        return text
 
-	print('url: ', url, '\n')
-
-	r = requests.get(url, allow_redirects=True)
-	mp3file = str(int(time())) + '.mp3'
-	with open(mp3file, 'wb+') as f:
-		f.write(r.content)
-	
-	return text, mp3file
 
 
 
@@ -262,7 +252,7 @@ class TextEditor:                        # mix with menu/toolbar Frame class
             ('IPA',  self.say_as_ipa,   {'side': LEFT}),
 
             # 'separator',
-            ('TTS',  self.decode_and_download, {'side': RIGHT}),
+            ('To tags',  self.decode_and_download, {'side': RIGHT}),
             # 'separator',
             ('Help',  self.help,     {'side': RIGHT}),
             ('Quit',  self.onQuit,   {'side': RIGHT})]
@@ -868,8 +858,7 @@ class TextEditor:                        # mix with menu/toolbar Frame class
 
         self.onDelete()
 
-        text, mp3file = decode(text)
-        os.system("start cmd @cmd /k vlc " + mp3file)
+        text = decode(text)
 
         self.text.insert(INSERT, text)          # add at current insert cursor
         self.text.tag_remove(SEL, '1.0', END)

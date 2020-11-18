@@ -127,9 +127,11 @@ def decode(text):
 		if text == temp_text:
 			isNotIdentical = False
 
-        print(text, '\n')
+	print(text, '\n')
 
-        return text
+	return text
+
+
 
 
 

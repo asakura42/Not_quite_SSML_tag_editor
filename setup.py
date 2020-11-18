@@ -2,14 +2,14 @@
 from setuptools import setup, find_packages
 
 try:
-    long_description = open("README.md").read()
+    long_description = open("README.rst").read()
 except IOError:
     long_description = ""
 
 setup(
     name="ssml",
     version="0.1.0",
-    description="ssml eitor",
+    description="A pip package",
     license="MIT",
     author="asakura",
     packages=find_packages(),

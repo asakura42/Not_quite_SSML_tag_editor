@@ -150,9 +150,7 @@ class TextEditor:                        # mix with menu/toolbar Frame class
     # Unicode configurations
     # imported in class to allow overrides in subclass or self
     if __name__ == '__main__':
-        from textConfig import (               # my dir is on the path
-            opensAskUser, opensEncoding,
-            savesUseKnownEncoding, savesAskUser, savesEncoding)
+        from . import textConfig
     else:
         from .textConfig import (              # 2.1: always from this package
             opensAskUser, opensEncoding,

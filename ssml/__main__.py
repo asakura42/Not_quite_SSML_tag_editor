@@ -24,7 +24,7 @@ from . import guimaker
 
 
 try:
-    import textConfig                        # startup font and colors
+    from . import textConfig                        # startup font and colors
     configs = textConfig.__dict__            # work if not on the path or bad
 except:                                      # define in client app directory 
     configs = {}
@@ -1003,7 +1003,7 @@ class TextEditor:                        # mix with menu/toolbar Frame class
         2.0 non-modal font spec dialog
         2.1: pass per-dialog inputs to callback, may be > 1 font dialog open
         """
-        from formrows import makeFormRow
+        from . import formrows
         popup = Toplevel(self)
         popup.title('SSMLtagEdit - font')
         var1 = makeFormRow(popup, label='Family', browse=False)

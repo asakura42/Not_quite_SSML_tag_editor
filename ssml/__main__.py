@@ -20,7 +20,7 @@ from tkinter.colorchooser import askcolor
 
 from tkinter.font import Font, families
 
-from . import guimaker 
+from ssml import guimaker 
 
 
 try:
